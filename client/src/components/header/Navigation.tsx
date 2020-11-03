@@ -26,7 +26,7 @@ const Navigation: FC = function () {
       <Menu.Item key='mail' icon={<HomeOutlined />}>
         <Link to='/'>Home</Link>
       </Menu.Item>
-      <Menu.Item key='login-out'>{isAuthenticated ? <LoginBtn /> : <LogoutBtn />}</Menu.Item>
+      <Menu.Item key='login-out'>{isAuthenticated ? <LogoutBtn /> : <LoginBtn />}</Menu.Item>
     </Menu>
   );
 };
