@@ -1,31 +1,30 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu } from 'antd';
-import { MenuProps } from 'rc-menu';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined, PieChartOutlined } from '@ant-design/icons';
 import LoginBtn from '../auth/LoginBtn';
 import LogoutBtn from '../auth/LogoutBtn';
 
 const Navigation: FC = function () {
   const { isAuthenticated } = useAuth0();
-  const [selectedLink, setSelectedLink] = useState<string>('home');
-
-  const handleClick: MenuProps['onClick'] = (e) => {
-    setSelectedLink(String(e.key));
-  };
+  const location = useLocation();
 
   return (
     <Menu
       mode='horizontal'
-      onClick={handleClick}
-      selectedKeys={[selectedLink]}
+      selectedKeys={[location.pathname]}
       style={{ display: 'flex', justifyContent: 'flex-end' }}
       theme='dark'
     >
-      <Menu.Item key='mail' icon={<HomeOutlined />}>
+      <Menu.Item key='/' icon={<HomeOutlined />}>
         <Link to='/'>Home</Link>
       </Menu.Item>
+      {isAuthenticated && (
+        <Menu.Item key='/dashboard' icon={<PieChartOutlined />}>
+          <Link to='/dashbaord'>Dashboard</Link>
+        </Menu.Item>
+      )}
       <Menu.Item key='login-out'>{isAuthenticated ? <LogoutBtn /> : <LoginBtn />}</Menu.Item>
     </Menu>
   );
