@@ -1,13 +1,11 @@
 import React, { FC, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
-import { Menu, Layout } from 'antd';
+import { Menu } from 'antd';
 import { MenuProps } from 'rc-menu';
 import { HomeOutlined } from '@ant-design/icons';
 import LoginBtn from '../auth/LoginBtn';
 import LogoutBtn from '../auth/LogoutBtn';
-
-const { Header } = Layout;
 
 const Navigation: FC = function () {
   const { isAuthenticated } = useAuth0();
@@ -18,14 +16,18 @@ const Navigation: FC = function () {
   };
 
   return (
-    <Header>
-      <Menu mode='horizontal' onClick={handleClick} selectedKeys={[selectedLink]}>
-        <Menu.Item key='mail' icon={<HomeOutlined />}>
-          <Link to='/'>Home</Link>
-        </Menu.Item>
-        <Menu.Item key='login-out'>{isAuthenticated ? <LoginBtn /> : <LogoutBtn />}</Menu.Item>
-      </Menu>
-    </Header>
+    <Menu
+      mode='horizontal'
+      onClick={handleClick}
+      selectedKeys={[selectedLink]}
+      style={{ display: 'flex', justifyContent: 'flex-end' }}
+      theme='dark'
+    >
+      <Menu.Item key='mail' icon={<HomeOutlined />}>
+        <Link to='/'>Home</Link>
+      </Menu.Item>
+      <Menu.Item key='login-out'>{isAuthenticated ? <LoginBtn /> : <LogoutBtn />}</Menu.Item>
+    </Menu>
   );
 };
 
