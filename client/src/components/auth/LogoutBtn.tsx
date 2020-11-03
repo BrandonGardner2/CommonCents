@@ -3,7 +3,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons';
 
-const LoginBtn: FC = function () {
+const LogoutBtn: FC = function () {
   const { logout } = useAuth0();
 
   return (
@@ -18,4 +18,4 @@ const LoginBtn: FC = function () {
   );
 };
 
-export default LoginBtn;
+export default LogoutBtn;
