@@ -19,7 +19,7 @@ function App() {
                 <Home />
               </Route>
 
-              <Route path='/404'>Whoops, looks like you got lost.</Route>
+              <Route>Whoops, looks like you got lost.</Route>
             </Switch>
           </Content>
         </Layout>
