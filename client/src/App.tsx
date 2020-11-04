@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import AuthProvider from './components/auth/AuthProvider';
 import AppHeader from './components/header/AppHeader';
+import Home from './routes/Home';
 
 const { Content } = Layout;
 
@@ -15,7 +16,7 @@ function App() {
           <Content>
             <Switch>
               <Route path='/' exact>
-                Hello world.
+                <Home />
               </Route>
 
               <Route path='/404'>Whoops, looks like you got lost.</Route>

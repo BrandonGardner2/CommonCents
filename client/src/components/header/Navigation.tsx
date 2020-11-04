@@ -5,6 +5,7 @@ import { Menu } from 'antd';
 import { HomeOutlined, PieChartOutlined } from '@ant-design/icons';
 import LoginBtn from '../auth/LoginBtn';
 import LogoutBtn from '../auth/LogoutBtn';
+import './headerStyle.scss';
 
 const Navigation: FC = function () {
   const { isAuthenticated } = useAuth0();
@@ -12,9 +13,9 @@ const Navigation: FC = function () {
 
   return (
     <Menu
+      className='navigation-container'
       mode='horizontal'
       selectedKeys={[location.pathname]}
-      style={{ display: 'flex', justifyContent: 'flex-end' }}
       theme='dark'
     >
       <Menu.Item key='/' icon={<HomeOutlined />}>
