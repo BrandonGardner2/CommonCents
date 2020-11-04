@@ -3,6 +3,12 @@
   justify-content: flex-end;
 }
 
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+}
+
 #header-title {
   margin-bottom: 0;
   align-self: center;

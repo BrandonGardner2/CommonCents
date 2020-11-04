@@ -13,7 +13,7 @@ function App() {
       <AuthProvider>
         <Layout>
           <AppHeader />
-          <Content>
+          <Content style={{ marginTop: '64px' }}>
             <Switch>
               <Route path='/' exact>
                 <Home />

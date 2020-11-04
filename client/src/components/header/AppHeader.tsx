@@ -8,7 +8,7 @@ const { Title } = Typography;
 
 const AppHeader: FC = function () {
   return (
-    <Header>
+    <Header className='header'>
       <Row justify='space-between'>
         <Col span={8} xs={16} style={{ display: 'flex' }}>
           <Title level={2} id='header-title'>
